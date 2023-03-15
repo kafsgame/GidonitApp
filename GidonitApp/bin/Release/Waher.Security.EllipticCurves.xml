@@ -1,0 +1,1603 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Waher.Security.EllipticCurves</name>
+    </assembly>
+    <members>
+        <member name="T:Waher.Security.EllipticCurves.Curve25519">
+            <summary>
+            Curve25519, as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.#ctor">
+            <summary>
+            Curve25519, as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.#ctor(System.Byte[])">
+            <summary>
+            Curve25519, as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Curve25519.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Curve25519.A">
+            <summary>
+            a Coefficient in the definition of the curve E:	v²=u³+A*u²+u
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.ToXY(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (U,V) coordinates to a pair of (X,Y) coordinates
+            in the birational Edwards curve.
+            </summary>
+            <param name="UV">(U,V) coordinates.</param>
+            <returns>(X,Y) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.ToUV(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (X,Y) coordinates for the birational Edwards curve
+            to a pair of (U,V) coordinates.
+            </summary>
+            <param name="XY">(X,Y) coordinates.</param>
+            <returns>(U,V) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.ScalarMultiplication(System.Byte[],System.Numerics.BigInteger)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="U"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="U">U-coordinate of point</param>
+            <returns><paramref name="N"/>*<paramref name="U"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.CalculatePrivateKey(System.Byte[])">
+            <summary>
+            Calculates a private key from a secret.
+            </summary>
+            <param name="Secret">Binary secret.</param>
+            <returns>Private key</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.CreatePair">
+            <summary>
+            Creates the Edwards Curve pair.
+            </summary>
+            <returns>Edwards curve.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the XEdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the XEdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve25519.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.Curve448">
+            <summary>
+            Curve448 (Goldilocks), as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.#ctor">
+            <summary>
+            Curve448 (Goldilocks), as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.#ctor(System.Byte[])">
+            <summary>
+            Curve448 (Goldilocks), as defined in RFC 7748:
+            https://tools.ietf.org/html/rfc7748
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Curve448.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Curve448.A">
+            <summary>
+            a Coefficient in the definition of the curve E:	v²=u³+A*u²+u
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.ToXY(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (U,V) coordinates to a pair of (X,Y) coordinates
+            in the birational Edwards curve.
+            </summary>
+            <param name="UV">(U,V) coordinates.</param>
+            <returns>(X,Y) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.ToUV(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (X,Y) coordinates for the birational Edwards curve
+            to a pair of (U,V) coordinates.
+            </summary>
+            <param name="XY">(X,Y) coordinates.</param>
+            <returns>(U,V) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.ScalarMultiplication(System.Byte[],System.Numerics.BigInteger)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="U"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="U">U-coordinate of point</param>
+            <returns><paramref name="N"/>*<paramref name="U"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.CalculatePrivateKey(System.Byte[])">
+            <summary>
+            Calculates a private key from a secret.
+            </summary>
+            <param name="Secret">Binary secret.</param>
+            <returns>Private key</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.CreatePair">
+            <summary>
+            Creates the Edwards Curve pair.
+            </summary>
+            <returns>Edwards curve.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the XEdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the XEdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Curve448.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.ECDH">
+            <summary>
+            Implements the Elliptic Curve Diffie-Hellman (ECDH) algorithm.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ECDH.GetSharedKey(System.Byte[],System.Byte[],Waher.Security.HashFunctionArray,Waher.Security.EllipticCurves.EllipticCurve)">
+            <summary>
+            Gets a shared key using the Elliptic Curve Diffie-Hellman (ECDH) algorithm.
+            </summary>
+            <param name="LocalPrivateKey">Local private key.</param>
+            <param name="RemotePublicKey">Public key of the remote party.</param>
+            <param name="HashFunction">A Hash function is applied to the derived key to generate the shared secret.
+            The derived key, as a byte array of equal size as the order of the prime field, ordered by most significant byte first,
+            is passed on to the hash function before being returned as the shared key.</param>
+            <param name="Curve">Elliptic curve used.</param>
+            <returns>Shared secret.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.ECDSA">
+            <summary>
+            Implements the Elliptic Curve Digital Signature Algorithm (ECDSA).
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ECDSA.Sign(System.Byte[],System.Byte[],Waher.Security.HashFunctionArray,System.Int32,System.Byte,Waher.Security.EllipticCurves.PrimeFieldCurve)">
+            <summary>
+            Signs data using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Data to be signed.</param>
+            <param name="PrivateKey">Private key.</param>
+            <param name="HashFunction">Hash function to use</param>
+            <param name="ScalarBytes">Number of bytes to use for scalars.</param>
+            <param name="MsbMask">Mask for most significant byte.</param>
+            <param name="Curve">Elliptic curve</param>
+            <returns>Signature</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ECDSA.Sign(System.IO.Stream,System.Byte[],Waher.Security.HashFunctionStream,System.Int32,System.Byte,Waher.Security.EllipticCurves.PrimeFieldCurve)">
+            <summary>
+            Signs data using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Data to be signed.</param>
+            <param name="PrivateKey">Private key.</param>
+            <param name="HashFunction">Hash function to use</param>
+            <param name="ScalarBytes">Number of bytes to use for scalars.</param>
+            <param name="MsbMask">Mask for most significant byte.</param>
+            <param name="Curve">Elliptic curve</param>
+            <returns>Signature</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ECDSA.Verify(System.Byte[],System.Byte[],Waher.Security.HashFunctionArray,System.Int32,System.Byte,Waher.Security.EllipticCurves.PrimeFieldCurve,System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="HashFunction">Hash function to use.</param>
+            <param name="Curve">Elliptic curve</param>
+            <param name="ScalarBytes">Number of bytes to use for scalars.</param>
+            <param name="MsbMask">Mask for most significant byte.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ECDSA.Verify(System.IO.Stream,System.Byte[],Waher.Security.HashFunctionStream,System.Int32,System.Byte,Waher.Security.EllipticCurves.PrimeFieldCurve,System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="HashFunction">Hash function to use.</param>
+            <param name="Curve">Elliptic curve</param>
+            <param name="ScalarBytes">Number of bytes to use for scalars.</param>
+            <param name="MsbMask">Mask for most significant byte.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.EdDSA">
+            <summary>
+            Implements the Edwards curve Digital Signature Algorithm (EdDSA), as defined in RFC 8032.
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Sign(System.Byte[],System.Byte[],System.Byte[],Waher.Security.HashFunctionArray,Waher.Security.EllipticCurves.EdwardsCurveBase)">
+            <summary>
+            Signs data using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Data to be signed.</param>
+            <param name="PrivateKey">Private key.</param>
+            <param name="Prefix">Prefix</param>
+            <param name="HashFunction">Hash function to use</param>
+            <param name="Curve">Elliptic curve</param>
+            <returns>Signature</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Sign(System.IO.Stream,System.Byte[],System.Byte[],Waher.Security.HashFunctionStream,Waher.Security.EllipticCurves.EdwardsCurveBase)">
+            <summary>
+            Signs data using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Data to be signed.</param>
+            <param name="PrivateKey">Private key.</param>
+            <param name="Prefix">Prefix</param>
+            <param name="HashFunction">Hash function to use</param>
+            <param name="Curve">Elliptic curve</param>
+            <returns>Signature</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Encode(Waher.Security.EllipticCurves.PointOnCurve,Waher.Security.EllipticCurves.EdwardsCurveBase)">
+            <summary>
+            Encodes a point on the curve in accordance with §5.1.2 of RFC 8032.
+            </summary>
+            <param name="P">Point</param>
+            <param name="Curve">Edwards curve.</param>
+            <returns>Encoding</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Decode(System.Byte[],Waher.Security.EllipticCurves.EdwardsCurveBase)">
+            <summary>
+            Decodes a point on the curve in accordance with §5.1.3 of RFC 8032.
+            </summary>
+            <param name="Encoded">Encoded point.</param>
+            <param name="Curve">Elliptic curve</param>
+            <returns>Point on curve.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Verify(System.Byte[],System.Byte[],Waher.Security.HashFunctionArray,Waher.Security.EllipticCurves.EdwardsCurveBase,System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="HashFunction">Hash function to use.</param>
+            <param name="Curve">Elliptic curve</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdDSA.Verify(System.IO.Stream,System.Byte[],Waher.Security.HashFunctionStream,Waher.Security.EllipticCurves.EdwardsCurveBase,System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="HashFunction">Hash function to use.</param>
+            <param name="Curve">Elliptic curve</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.Edwards25519">
+            <summary>
+            Edwards25519 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.#ctor">
+            <summary>
+            Edwards25519 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.#ctor(System.Byte[])">
+            <summary>
+            Edwards25519 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.#ctor(System.Byte[],System.Boolean)">
+            <summary>
+            Edwards25519 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+            <param name="Secret">Secret.</param>
+            <param name="HashSecret">If the secret should be hashed to create the private key.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Edwards25519.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Edwards25519.CoordinateBits">
+            <summary>
+            Number of bits used to encode the y-coordinate.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.CalculatePrivateKey(System.Byte[])">
+            <summary>
+            Calculates a private key from a secret.
+            </summary>
+            <param name="Secret">Binary secret.</param>
+            <returns>Private key</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards25519.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.Edwards448">
+            <summary>
+            Edwards448 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.#ctor">
+            <summary>
+            Edwards448 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.#ctor(System.Byte[])">
+            <summary>
+            Edwards448 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.#ctor(System.Byte[],System.Boolean)">
+            <summary>
+            Edwards448 Elliptic Curve, as defined in RFC7748 and RFC8032:
+            https://tools.ietf.org/html/rfc7748
+            https://tools.ietf.org/html/rfc8032
+            </summary>
+            <param name="Secret">Secret.</param>
+            <param name="HashSecret">If the secret should be hashed to create the private key.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Edwards448.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Edwards448.D">
+            <summary>
+            d coefficient of Edwards curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.Edwards448.CoordinateBits">
+            <summary>
+            Number of bits used to encode the y-coordinate.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.CalculatePrivateKey(System.Byte[])">
+            <summary>
+            Calculates a private key from a secret.
+            </summary>
+            <param name="Secret">Binary secret.</param>
+            <returns>Private key</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.Edwards448.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the EdDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.EdwardsCurve">
+            <summary>
+            Base class of Edwards curves (x²+y²=1+dx²y²) over a prime field.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Edwards curves (x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Coefficient in the curve equation (x²+y²=1+dx²y²)</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Edwards curves (x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Coefficient in the curve equation (x²+y²=1+dx²y²)</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EdwardsCurve.D">
+            <summary>
+            d coefficient of Edwards curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EdwardsCurve.Zero">
+            <summary>
+            Neutral point.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurve.AddTo(Waher.Security.EllipticCurves.PointOnCurve@,Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Adds <paramref name="Q"/> to <paramref name="P"/>.
+            </summary>
+            <param name="P">Point 1.</param>
+            <param name="Q">Point 2.</param>
+            <returns>P+Q</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurve.Double(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Doubles a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurve.GetX(System.Numerics.BigInteger,System.Boolean)">
+            <summary>
+            Gets the X-coordinate that corresponds to a given Y-coordainte, and the 
+            first bit of the X-coordinate.
+            </summary>
+            <param name="Y">Y-coordinate.</param>
+            <param name="X0">First bit of X-coordinate.</param>
+            <returns>X-coordinate</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.EdwardsCurveBase">
+            <summary>
+            Base class of different types of Edwards curves over a prime field.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EdwardsCurveBase.d">
+            <summary>
+            Edwards curve coefficient
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EdwardsCurveBase.d2">
+            <summary>
+            Edwards curve coefficient * 2 mod p
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Twisted Edwards curves (-x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Edwards curve coefficient</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Twisted Edwards curves (-x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Coefficient in the curve equation (-x²+y²=1+dx²y²)</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EdwardsCurveBase.CoordinateBits">
+            <summary>
+            Number of bits used to encode the y-coordinate.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EdwardsCurveBase.Zero">
+            <summary>
+            Neutral point.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.GetX(System.Numerics.BigInteger,System.Boolean)">
+            <summary>
+            Gets the X-coordinate that corresponds to a given Y-coordainte, and the 
+            first bit of the X-coordinate.
+            </summary>
+            <param name="Y">Y-coordinate.</param>
+            <param name="X0">First bit of X-coordinate.</param>
+            <returns>X-coordinate</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.Encode(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Encodes a point on the curve.
+            </summary>
+            <param name="Point">Normalized point to encode.</param>
+            <returns>Encoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.Decode(System.Byte[])">
+            <summary>
+            Decodes an encoded point on the curve.
+            </summary>
+            <param name="Point">Encoded point.</param>
+            <returns>Decoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsCurveBase.Negate(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Negates a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.EdwardsTwistedCurve">
+            <summary>
+            Base class of Twisted Edwards curves (-x²+y²=1+dx²y²) over a prime field.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsTwistedCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Twisted Edwards curves (-x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Coefficient in the curve equation (-x²+y²=1+dx²y²)</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsTwistedCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Twisted Edwards curves (-x²+y²=1+dx²y²) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (X,Y) coordinates.</param>
+            <param name="d">Coefficient in the curve equation (-x²+y²=1+dx²y²)</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsTwistedCurve.AddTo(Waher.Security.EllipticCurves.PointOnCurve@,Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Adds <paramref name="Q"/> to <paramref name="P"/>.
+            </summary>
+            <param name="P">Point 1.</param>
+            <param name="Q">Point 2.</param>
+            <returns>P+Q</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsTwistedCurve.Double(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Doubles a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EdwardsTwistedCurve.GetX(System.Numerics.BigInteger,System.Boolean)">
+            <summary>
+            Gets the X-coordinate that corresponds to a given Y-coordainte, and the 
+            first bit of the X-coordinate.
+            </summary>
+            <param name="Y">Y-coordinate.</param>
+            <param name="X0">First bit of X-coordinate.</param>
+            <returns>X-coordinate</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.EllipticCurve">
+            <summary>
+            Abstract base class for elliptic curves.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.Namespace">
+            <summary>
+            http://waher.se/Schema/EllipticCurves.xsd
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.Two">
+            <summary>
+            2
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.ElementName">
+            <summary>
+            "EllipticCurve"
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.rnd">
+            <summary>
+            Random number generator
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.g">
+            <summary>
+            Base point
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.n">
+            <summary>
+            Order
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.cofactor">
+            <summary>
+            cofactor
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.orderBits">
+            <summary>
+            Number of bits used for the order of the curve.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.orderBytes">
+            <summary>
+            Number of bytes used for the order of the curve.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.EllipticCurve.msbOrderMask">
+            <summary>
+            Mask for most significant byte of scalars.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.#ctor(Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Abstract base class for elliptic curves.
+            </summary>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.#ctor(Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Abstract base class for elliptic curves.
+            </summary>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Init">
+            <summary>
+            Method initiazing the elliptic curve properties.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.PrivateKey">
+            <summary>
+            Private key
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.PublicKey">
+            <summary>
+            Encoded public key
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.AdditionalInfo">
+            <summary>
+            Curve-specific additional information
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.PublicKeyPoint">
+            <summary>
+            Public key, as a point on the elliptic curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.Order">
+            <summary>
+            Order of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.OrderBytes">
+            <summary>
+            Number of bytes required to represent the order of the curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.OrderBits">
+            <summary>
+            Number of bits required to represent the order of the curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.Cofactor">
+            <summary>
+            Cofactor of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.BasePoint">
+            <summary>
+            Base-point of curve.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.GenerateSecret">
+            <summary>
+            Generates a new secret.
+            </summary>
+            <returns>Generated secret.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.SetPrivateKey(System.Byte[])">
+            <summary>
+            Sets the private key (and therefore also the public key) of the curve.
+            </summary>
+            <param name="Secret">Secret</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.CalculatePrivateKey(System.Byte[])">
+            <summary>
+            Calculates a private key from a secret.
+            </summary>
+            <param name="Secret">Binary secret.</param>
+            <returns>Private key, and curve-specific information</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Encode(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Encodes a point on the curve.
+            </summary>
+            <param name="Point">Normalized point to encode.</param>
+            <returns>Encoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Decode(System.Byte[])">
+            <summary>
+            Decodes an encoded point on the curve.
+            </summary>
+            <param name="Point">Encoded point.</param>
+            <returns>Decoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.GenerateKeys">
+            <summary>
+            Generates a new Private Key.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.ScalarMultiplication(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Boolean)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="P"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="P">Point</param>
+            <param name="Normalize">If normalized output is expected.</param>
+            <returns><paramref name="N"/>*<paramref name="P"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.ScalarMultiplication(System.Byte[],Waher.Security.EllipticCurves.PointOnCurve,System.Boolean)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="P"/>.
+            </summary>
+            <param name="N">Scalar, in binary, little-endian form.</param>
+            <param name="P">Point</param>
+            <param name="Normalize">If normalized output is expected.</param>
+            <returns><paramref name="N"/>*<paramref name="P"/></returns>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.EllipticCurve.Zero">
+            <summary>
+            Neutral point.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.AddTo(Waher.Security.EllipticCurves.PointOnCurve@,Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Adds <paramref name="Q"/> to <paramref name="P"/>.
+            </summary>
+            <param name="P">Point 1.</param>
+            <param name="Q">Point 2.</param>
+            <returns>P+Q</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Double(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Doubles a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.GetSharedKey(System.Byte[],Waher.Security.HashFunctionArray)">
+            <summary>
+            Gets a shared key using the Elliptic Curve Diffie-Hellman (ECDH) algorithm.
+            </summary>
+            <param name="RemotePublicKey">Public key of the remote party.</param>
+            <param name="HashFunction">A Hash function is applied to the derived key to generate the shared secret.
+            The derived key, as a byte array of equal size as the order of the prime field, ordered by most significant byte first,
+            is passed on to the hash function before being returned as the shared key.</param>
+            <returns>Shared secret.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Export(System.Xml.XmlWriter)">
+            <summary>
+            Exports the curve parameters to XML.
+            </summary>
+            <param name="Output">Output</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.Export">
+            <summary>
+            Exports the curve parameters to an XML string.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.EllipticCurve.ToInt(System.Byte[])">
+            <summary>
+            Converts a little-endian binary representation of a big integer to a 
+            <see cref="T:System.Numerics.BigInteger"/>.
+            </summary>
+            <param name="Binary">Little-endian binary representation of a big integer</param>
+            <returns><see cref="T:System.Numerics.BigInteger"/></returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.ModulusP">
+            <summary>
+            Integer arithmetic, modulus a prime.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.ModulusP.p">
+            <summary>
+            Base prime.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.#ctor(System.Numerics.BigInteger)">
+            <summary>
+            Integer arithmetic, modulus a prime.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Add(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Adds two numbers, modulus p
+            </summary>
+            <param name="a">Number 1</param>
+            <param name="b">Number 2</param>
+            <returns>a+b mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Subtract(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Subtracts two numbers, modulus p
+            </summary>
+            <param name="a">Number 1</param>
+            <param name="b">Number 2</param>
+            <returns>a-b mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Multiply(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Multiplies two numbers, modulus p
+            </summary>
+            <param name="a">Number 1</param>
+            <param name="b">Number 2</param>
+            <returns>a*b mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Divide(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Divides two numbers, modulus p
+            </summary>
+            <param name="a">Number 1</param>
+            <param name="b">Number 2</param>
+            <returns>a/b mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Negate(System.Numerics.BigInteger)">
+            <summary>
+            Negates a number in the field Z[p].
+            </summary>
+            <param name="x">Number to negate.</param>
+            <returns>-x mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Invert(System.Numerics.BigInteger)">
+            <summary>
+            Inverts a number in the field Z[p].
+            </summary>
+            <param name="x">Number to invert.</param>
+            <returns>x^-1 mod p</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.Sqrt(System.Numerics.BigInteger)">
+            <summary>
+            Computes sqrt(N) mod p.
+            </summary>
+            <param name="N">Number</param>
+            <returns>Square root of <paramref name="N"/> mod p.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.SqrtModP(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Computes sqrt(N) mod p.
+            </summary>
+            <param name="N">Number</param>
+            <param name="p">Prime</param>
+            <returns>Square root of <paramref name="N"/> mod p.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.CalcBits(System.Numerics.BigInteger)">
+            <summary>
+            Calculates the number of bits used.
+            </summary>
+            <param name="n">Value</param>
+            <returns>Number of bits used by value.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.ModulusP.CalcBits(System.Byte[])">
+            <summary>
+            Calculates the number of bits used in a binary encoded big integer.
+            </summary>
+            <param name="A">Value</param>
+            <returns>Number of bits used by value.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.MontgomeryCurve">
+            <summary>
+            Base class of Montgomery curves (y²=x³+Ax²+x), with biratinal Edwards equivalent 
+            over a prime field.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Montgomery curves (y²=x³+Ax²+x), with biratinal Edwards equivalent 
+            over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (U,V) coordinates.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Montgomery curves, with biratinal Edwards equivalent 
+            over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point in (U,V) coordinates.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.MontgomeryCurve.A">
+            <summary>
+            a Coefficient in the definition of the curve E:	v²=u³+A*u²+u
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ToXY(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (U,V) coordinates to a pair of (X,Y) coordinates
+            in the birational Edwards curve.
+            </summary>
+            <param name="UV">(U,V) coordinates.</param>
+            <returns>(X,Y) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ToUV(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Converts a pair of (X,Y) coordinates for the birational Edwards curve
+            to a pair of (U,V) coordinates.
+            </summary>
+            <param name="XY">(X,Y) coordinates.</param>
+            <returns>(U,V) coordinates.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.AddTo(Waher.Security.EllipticCurves.PointOnCurve@,Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Adds <paramref name="Q"/> to <paramref name="P"/>.
+            </summary>
+            <param name="P">Point 1.</param>
+            <param name="Q">Point 2.</param>
+            <returns>P+Q</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.Double(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Doubles a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ScalarMultiplication(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="U"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="U">U-coordinate of point</param>
+            <returns><paramref name="N"/>*<paramref name="U"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ScalarMultiplication(System.Byte[],System.Numerics.BigInteger)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="U"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="U">U-coordinate of point</param>
+            <returns><paramref name="N"/>*<paramref name="U"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ScalarMultiplication(System.Byte[],Waher.Security.EllipticCurves.PointOnCurve,System.Boolean)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="P"/>.
+            </summary>
+            <param name="N">Scalar, in binary, little-endian form.</param>
+            <param name="P">Point</param>
+            <param name="Normalize">If normalized output is expected.</param>
+            <returns><paramref name="N"/>*<paramref name="P"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.XFunction(System.Byte[],System.Numerics.BigInteger,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="U"/>.
+            </summary>
+            <param name="N">Scalar</param>
+            <param name="U">U-coordinate of point.</param>
+            <param name="A24">(A-2)/4</param>
+            <param name="p">Prime</param>
+            <param name="Bits">Number of bits</param>
+            <returns><paramref name="N"/>*<paramref name="U"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.ConditionalSwap(System.Int32,System.Numerics.BigInteger@,System.Numerics.BigInteger@)">
+            <summary>
+            Swaps <paramref name="I2"/> and <paramref name="I3"/> if 
+            <paramref name="swap"/> != 0, in a way that minimizes the risk
+            of a side-channel attack measuring CPU timing, to deduce the bits
+            used in private keys.
+            </summary>
+            <param name="swap">If integers are to be swapped.</param>
+            <param name="I2">First integer.</param>
+            <param name="I3">Second integer.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.MontgomeryCurve.Pair">
+            <summary>
+            Edwards Curve pair.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.CreatePair">
+            <summary>
+            Creates the Edwards Curve pair.
+            </summary>
+            <returns>Edwards curve.</returns>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.MontgomeryCurve.PublicKeyPoint">
+            <summary>
+            Public key.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.CalcV(System.Numerics.BigInteger)">
+            <summary>
+            Calculates the V-coordinate, given the corresponding U-coordinate.
+            </summary>
+            <param name="U">U-coordinate.</param>
+            <returns>V-coordinate.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.Encode(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Encodes a point on the curve.
+            </summary>
+            <param name="Point">Normalized point to encode.</param>
+            <returns>Encoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.Decode(System.Byte[])">
+            <summary>
+            Decodes an encoded point on the curve.
+            </summary>
+            <param name="Point">Encoded point.</param>
+            <returns>Decoded point.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.MontgomeryCurve.SetPrivateKey(System.Byte[])">
+            <summary>
+            Sets the private key (and therefore also the public key) of the curve.
+            </summary>
+            <param name="Secret">Secret</param>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistP192">
+            <summary>
+            NIST P-192 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP192.#ctor">
+            <summary>
+            NIST P-192 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP192.#ctor(System.Byte[])">
+            <summary>
+            NIST P-192 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP192.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistP224">
+            <summary>
+            NIST P-224 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP224.#ctor">
+            <summary>
+            NIST P-224 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP224.#ctor(System.Byte[])">
+            <summary>
+            NIST P-224 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP224.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistP256">
+            <summary>
+            NIST P-256 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP256.#ctor">
+            <summary>
+            NIST P-256 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP256.#ctor(System.Byte[])">
+            <summary>
+            NIST P-256 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP256.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistP384">
+            <summary>
+            NIST P-384 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP384.#ctor">
+            <summary>
+            NIST P-384 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP384.#ctor(System.Byte[])">
+            <summary>
+            NIST P-384 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP384.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP384.HashFunction">
+            <summary>
+            Hash function to use in signatures.
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistP521">
+            <summary>
+            NIST P-521 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP521.#ctor">
+            <summary>
+            NIST P-521 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistP521.#ctor(System.Byte[])">
+            <summary>
+            NIST P-521 Elliptic Curve, as defined in NIST FIPS BUB 186-4:
+            https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
+            </summary>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP521.CurveName">
+            <summary>
+            Name of curve.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistP521.HashFunction">
+            <summary>
+            Hash function to use in signatures.
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.NistPrimeCurve">
+            <summary>
+            Base class of Elliptic curves over a prime field defined by NIST.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger)">
+            <summary>
+            Base class of Elliptic curves over a prime field defined by NIST.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Byte[])">
+            <summary>
+            Base class of Elliptic curves over a prime field defined by NIST.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.ToBigInteger(System.UInt32[])">
+            <summary>
+            Converts a sequence of unsigned 32-bit integers to a <see cref="T:System.Numerics.BigInteger"/>.
+            </summary>
+            <param name="BigEndianDWords">Sequence of unsigned 32-bit integers to a <see cref="T:System.Numerics.BigInteger"/>, most significant word first.</param>
+            <returns><see cref="T:System.Numerics.BigInteger"/> value.</returns>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.NistPrimeCurve.HashFunction">
+            <summary>
+            Hash function to use in signatures.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.Sign(System.Byte[])">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.Sign(System.IO.Stream)">
+            <summary>
+            Creates a signature of <paramref name="Data"/> using the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <returns>Signature.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.Verify(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.NistPrimeCurve.Verify(System.IO.Stream,System.Byte[],System.Byte[])">
+            <summary>
+            Verifies a signature of <paramref name="Data"/> made by the ECDSA algorithm.
+            </summary>
+            <param name="Data">Payload to sign.</param>
+            <param name="PublicKey">Public Key of the entity that generated the signature.</param>
+            <param name="Signature">Signature</param>
+            <returns>If the signature is valid.</returns>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.PointOnCurve">
+            <summary>
+            Represents a point on a curve.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.#ctor(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Represents a point on a curve.
+            </summary>
+            <param name="P">Point to copy.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.#ctor(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Represents a point on a curve.
+            </summary>
+            <param name="X">X-coordinate</param>
+            <param name="Y">Y-coordinate</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.#ctor(System.Numerics.BigInteger,System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Represents a point on a curve.
+            </summary>
+            <param name="X">X-coordinate</param>
+            <param name="Y">Y-coordinate</param>
+            <param name="Z">Z-coordinate</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.#ctor(System.Numerics.BigInteger,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Represents a point on a curve.
+            </summary>
+            <param name="X">X-coordinate</param>
+            <param name="Y">Y-coordinate</param>
+            <param name="Z">Z-coordinate</param>
+            <param name="T">T-coordinate</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.X">
+            <summary>
+            X-coordinate
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.Y">
+            <summary>
+            X-coordinate
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.Z">
+            <summary>
+            Z-coordinate
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.T">
+            <summary>
+            T-coordinate
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.NonZero">
+            <summary>
+            If the point is not zero (infinity).
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.IsHomogeneous">
+            <summary>
+            If the point is in homogeneous coordinates.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.IsXZero">
+            <summary>
+            If the X-coordinate is zero.
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PointOnCurve.IsYZero">
+            <summary>
+            If the Y-coordinate is zero.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.CopyFrom(Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Copies the value from point <paramref name="C"/>.
+            </summary>
+            <param name="C">Point to copy from.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PointOnCurve.Normalize(Waher.Security.EllipticCurves.PrimeFieldCurve)">
+            <summary>
+            Normalizes a point, if in homogeneous coorinates.
+            </summary>
+            <param name="Curve">Curve</param>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.PrimeFieldCurve">
+            <summary>
+            Base class of Elliptic curves over a prime field.
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.PrimeFieldCurve.modP">
+            <summary>
+            Arithmetic modulus p
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.PrimeFieldCurve.modN">
+            <summary>
+            Arithmetic modulus n
+            </summary>
+        </member>
+        <member name="F:Waher.Security.EllipticCurves.PrimeFieldCurve.p">
+            <summary>
+            Prime p
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PrimeFieldCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Elliptic curves over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PrimeFieldCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Elliptic curves over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PrimeFieldCurve.Prime">
+            <summary>
+            Prime of curve.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PrimeFieldCurve.ScalarMultiplication(System.Byte[],Waher.Security.EllipticCurves.PointOnCurve,System.Boolean)">
+            <summary>
+            Performs the scalar multiplication of <paramref name="N"/>*<paramref name="P"/>.
+            </summary>
+            <param name="N">Scalar, in binary, little-endian form.</param>
+            <param name="P">Point</param>
+            <param name="Normalize">If normalized output is expected.</param>
+            <returns><paramref name="N"/>*<paramref name="P"/></returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.PrimeFieldCurve.GenerateSecret">
+            <summary>
+            Generates a new secret.
+            </summary>
+            <returns>Generated secret.</returns>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PrimeFieldCurve.ModulusP">
+            <summary>
+            Arithmetic modulus p (the prime)
+            </summary>
+        </member>
+        <member name="P:Waher.Security.EllipticCurves.PrimeFieldCurve.ModulusN">
+            <summary>
+            Arithmetic modulus n (the order)
+            </summary>
+        </member>
+        <member name="T:Waher.Security.EllipticCurves.WeierstrassCurve">
+            <summary>
+            Base class of Weierstrass curves (y²=x³+ax+b) over a prime field.
+            </summary>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.WeierstrassCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Base class of Weierstrass curves (y²=x³+ax+b) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="a">Coefficient in the Weierstrass equation.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.WeierstrassCurve.#ctor(System.Numerics.BigInteger,Waher.Security.EllipticCurves.PointOnCurve,System.Numerics.BigInteger,System.Numerics.BigInteger,System.Int32,System.Byte[])">
+            <summary>
+            Base class of Weierstrass curves (y²=x³+ax+b) over a prime field.
+            </summary>
+            <param name="Prime">Prime base of field.</param>
+            <param name="BasePoint">Base-point.</param>
+            <param name="a">Coefficient in the Weierstrass equation.</param>
+            <param name="Order">Order of base-point.</param>
+            <param name="Cofactor">Cofactor of curve.</param>
+            <param name="Secret">Secret.</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.WeierstrassCurve.Negate(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Negates a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.WeierstrassCurve.AddTo(Waher.Security.EllipticCurves.PointOnCurve@,Waher.Security.EllipticCurves.PointOnCurve)">
+            <summary>
+            Adds <paramref name="Q"/> to <paramref name="P"/>.
+            </summary>
+            <param name="P">Point 1.</param>
+            <param name="Q">Point 2.</param>
+            <returns>P+Q</returns>
+        </member>
+        <member name="M:Waher.Security.EllipticCurves.WeierstrassCurve.Double(Waher.Security.EllipticCurves.PointOnCurve@)">
+            <summary>
+            Doubles a point on the curve.
+            </summary>
+            <param name="P">Point</param>
+        </member>
+    </members>
+</doc>
